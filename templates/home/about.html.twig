@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}About Me{% endblock %}
+
+{% block body %}
+<div class="page-header">
+    <div class="container">
+        <h1>About Me</h1>
+        <p class="lead">Developer, Problem Solver, Technology Enthusiast</p>
+    </div>
+</div>
+
+<section class="section">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2>My Journey</h2>
+                <p>
+                    I'm a passionate full-stack developer with experience in building modern web applications.
+                    I specialize in backend development with PHP and Symfony, while also having strong
+                    frontend skills to create complete solutions.
+                </p>
+                <p>
+                    My approach combines clean code principles, test-driven development, and continuous
+                    learning to deliver high-quality software that meets business needs.
+                </p>
+            </div>
+
+            <div class="skills">
+                <h2>Technical Skills</h2>
+                {% for skill, percentage in skills %}
+                <div class="skill-item">
+                    <div class="skill-header">
+                        <span>{{ skill }}</span>
+                        <span>{{ percentage }}%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: {{ percentage }}%"></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="experience">
+            <h2>Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Senior Developer</h3>
+                    <p class="company">Tech Company Inc. • 2022 - Present</p>
+                    <p>Leading development of microservices architecture and mentoring junior developers.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Full-Stack Developer</h3>
+                    <p class="company">Digital Agency • 2020 - 2022</p>
+                    <p>Developed multiple client projects using Symfony, React, and modern DevOps practices.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Junior Developer</h3>
+                    <p class="company">Startup Co. • 2018 - 2020</p>
+                    <p>Started career building web applications and learning software engineering principles.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
