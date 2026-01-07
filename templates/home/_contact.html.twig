@@ -1,33 +1,28 @@
-<div class="hero" id="contact">
+<section class="section" id="contact">
     <div class="container">
-        <h1>Get In Touch</h1>
-        <p class="lead">Let's discuss your next project</p>
-    </div>
-</div>
-
-<section class="section">
-    <div class="container">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-subtitle">Ready to bring your ideas to life? Let's start a conversation</p>
+        
         <div class="contact-content">
             <div class="contact-info">
                 <h2>Contact Information</h2>
                 <div class="info-item">
                     <strong>📧 Email</strong>
-                    <p>your.email@example.com</p>
+                    <p><a href="mailto:joao.otavio.gallo@gmail.com">joao.otavio.gallo@gmail.com</a></p>
                 </div>
                 <div class="info-item">
-                    <strong>📱 Phone</strong>
-                    <p>+1 (555) 123-4567</p>
+                    <strong>📱 WhatsApp</strong>
+                    <p><a href="https://wa.me/5511976787933">+55 11 97678-7933</a></p>
                 </div>
                 <div class="info-item">
                     <strong>📍 Location</strong>
-                    <p>San Francisco, CA</p>
+                    <p>São Paulo, Brazil</p>
                 </div>
                 <div class="info-item">
-                    <strong>🔗 Social</strong>
+                    <strong>🔗 Connect</strong>
                     <p>
-                        <a href="#" target="_blank">GitHub</a> •
-                        <a href="#" target="_blank">LinkedIn</a> •
-                        <a href="#" target="_blank">Twitter</a>
+                        <a href="https://github.com/jotagallo" target="_blank">GitHub</a> •
+                        <a href="http://br.linkedin.com/in/jotagallo" target="_blank">LinkedIn</a>
                     </p>
                 </div>
             </div>
@@ -36,18 +31,18 @@
                 <h2>Send a Message</h2>
                 <form action="{{ path('home') }}#contact" method="post">
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="Tell me about your project..." required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary">Send Message →</button>
                 </form>
             </div>
         </div>

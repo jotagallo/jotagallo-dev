@@ -3,23 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Portfolio{% endblock %}</title>
+    <title>{% block title %}João Otávio Gallo - Senior Fullstack Developer{% endblock %}</title>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Fixed Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#home" class="logo">JOTAGALLO</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <main>
         {% block body %}{% endblock %}
     </main>
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; {{ "now"|date("Y") }} Portfolio. Built with Symfony.</p>
+            <p>&copy; {{ "now"|date("Y") }} João Otávio Gallo. Crafted with Symfony & ❤️</p>
         </div>
     </footer>
+
+    <script>
+        // Toggle experience timeline
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleBtn = document.getElementById('toggleExperience');
+            const hiddenItems = document.querySelectorAll('.timeline-item-hidden');
+            let isExpanded = false;
+
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', function() {
+                    isExpanded = !isExpanded;
+                    
+                    hiddenItems.forEach(item => {
+                        if (isExpanded) {
+                            item.classList.add('show');
+                        } else {
+                            item.classList.remove('show');
+                        }
+                    });
+                    
+                    toggleBtn.textContent = isExpanded ? 'Show Less Experience' : 'Show More Experience';
+                });
+            }
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && href.length > 1) {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
