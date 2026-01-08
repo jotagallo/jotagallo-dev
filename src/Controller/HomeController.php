@@ -21,6 +21,7 @@ class HomeController extends AbstractController
             'title' => $this->portfolioData->getTitle(),
             'skills' => $this->portfolioData->getSkills(),
             'projects' => $this->portfolioData->getProjects(),
+            'experience' => $this->portfolioData->getExperience(),
         ]);
     }
 }

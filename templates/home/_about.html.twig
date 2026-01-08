@@ -11,24 +11,29 @@
                     development market. I've worked full-remote for international companies for the past 5 years, 
                     with 2 years experience as PHP Tech Lead managing both national and international teams.
                 </p>
-                <p class="text-slate-400 leading-relaxed">
+                <p class="text-slate-400 leading-relaxed mb-6">
                     My expertise spans modern PHP frameworks including Drupal, Symfony, and Laravel (5 years), 
                     fullstack JavaScript/TypeScript with React and Vue, and cloud infrastructure with AWS and Docker. 
                     I'm passionate about clean architecture, SOLID principles, and building scalable enterprise 
                     solutions for global companies like ABInbev, Inchcape, and GSK.
                 </p>
+                <p class="text-slate-400 leading-relaxed">
+                    Beyond code, I'm a passionate musician and multi-instrumentalist who finds creativity in both 
+                    music and development. Based in São Paulo, Brazil, I balance my professional life with being 
+                    a proud father to a 5-year-old daughter who keeps me inspired and grounded.
+                </p>
             </div>
 
             <div id="skills">
                 <h2 class="text-3xl font-bold mb-6 bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent">Technical Stack</h2>
-                {% for skill, percentage in skills %}
+                {% for skill, years in skills %}
                 <div class="mb-8">
                     <div class="flex justify-between mb-3 font-semibold">
                         <span>{{ skill }}</span>
-                        <span>{{ percentage }}%</span>
+                        <span>{{ years }} {{ years == 1 ? 'year' : 'years' }}</span>
                     </div>
                     <div class="h-3 bg-slate-800 rounded-full overflow-hidden shadow-inner">
-                        <div class="h-full bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full shadow-lg shadow-neon-cyan/50 transition-all duration-1500 ease-out relative overflow-hidden" style="width: {{ percentage }}%">
+                        <div class="h-full bg-gradient-to-r from-neon-cyan to-neon-purple rounded-full shadow-lg shadow-neon-cyan/50 transition-all duration-1500 ease-out relative overflow-hidden" style="width: {{ (years / 15 * 100) }}%">
                             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer"></div>
                         </div>
                     </div>
@@ -39,103 +44,15 @@
 
         <div class="mt-16">
             <h2 class="text-3xl font-bold mb-10 bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent">Professional Experience</h2>
-            <div class="relative pl-10 md:pl-12 border-l-2 border-gradient-to-b from-neon-cyan to-neon-purple" style="border-image: linear-gradient(to bottom, #00f0ff, #9d00ff) 1;">
-                <div class="mb-6 pl-8 relative">
+            <div class="relative pl-10 md:pl-12 border-l-2 border-gradient-to-b from-neon-cyan to-neon-purple" style="border-image: linear-gradient(to bottom, #ff3366, #cc0066) 1;">
+                {% for job in experience %}
+                <div class="mb-6 pl-8 relative {{ job.hidden ? 'timeline-item-hidden' : '' }}">
                     <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Drupal Specialist Consultant</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">Squadra Digital • Dec 2024 - Jun 2025</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Drupal multi-site solutions for ABInbev, one of the largest beverage companies in the world.</p>
+                    <h3 class="text-lg md:text-xl font-bold mb-1">{{ job.title }}</h3>
+                    <p class="text-neon-magenta text-sm font-semibold mb-2">{{ job.company }} • {{ job.period }}</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">{{ job.description }}</p>
                 </div>
-                <div class="mb-6 pl-8 relative">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Senior PHP/Symfony Developer</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">Andela • Sep 2024 - Dec 2024</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Fullstack development for Inchcape, global distribution leader in premium automotive sectors.</p>
-                </div>
-                <div class="mb-6 pl-8 relative">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">PHP/Drupal Tech Lead</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">Sourceful IT Services • May 2023 - May 2024</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Leading teams, implementing projects for European clients, and migrating cloud environments with CI/CD.</p>
-                </div>
-                <div class="mb-6 pl-8 relative">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">PHP/Drupal Tech Lead</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">City Connect BR • Feb 2023 - May 2023</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Technical leader for Drupal projects in Brazilian public sector. Leading team for FIRJAN industry federation.</p>
-                </div>
-                <div class="mb-6 pl-8 relative">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Senior Drupal Developer</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">WeKnow Inc. • Oct 2022 - Feb 2023</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Contractor for US-based web agency, developing Drupal and VueJS projects.</p>
-                </div>
-                <div class="mb-6 pl-8 relative">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Drupal Tech Lead & Fullstack Developer</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">Arctouch (Devrank) • Jan 2022 - Sep 2022</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Tech Lead for GSK pharmaceutical project. Fullstack developer for Quizlet educational startup.</p>
-                </div>
-                <div class="mb-6 pl-8 relative">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Drupal Fullstack Developer</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">Bluetent • Sep 2019 - Jan 2022</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Full-remote for USA vacation rentals software company, serving hundreds of clients nationwide.</p>
-                </div>
-                <div class="mb-6 pl-8 relative">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Team Coordinator & Drupal Tech Lead</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">EF5 Web Development • Feb 2019 - Sep 2019</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Coordinated multi-language projects for major food company. Technical leadership for deployment and DevOps.</p>
-                </div>
-                <div class="mb-6 pl-8 relative hidden" id="experience-hidden">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Senior PHP Developer</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">Opah IT Consulting • Jun 2018 - Feb 2019</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Led PHP projects with Symfony and Laravel for major national clients.</p>
-                </div>
-                <div class="mb-6 pl-8 relative timeline-item-hidden">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Senior Drupal Developer</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">GLOBANT • Sep 2016 - May 2018</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">International Drupal team for enterprise projects. Daily communication with global teams.</p>
-                </div>
-                <div class="mb-6 pl-8 relative timeline-item-hidden">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Senior Drupal/PHP Developer</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">VORTTEX • Apr 2016 - Aug 2016</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Led Drupal and PHP development for JBS and SADIA food companies.</p>
-                </div>
-                <div class="mb-6 pl-8 relative timeline-item-hidden">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">PHP/Drupal Developer</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">Valor Econômico • Nov 2014 - Feb 2016</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Development and maintenance for Brazil's leading economic media company.</p>
-                </div>
-                <div class="mb-6 pl-8 relative timeline-item-hidden">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Java Android Developer</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">Resource IT Solutions • Jun 2014 - Nov 2014</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Native mobile app development for major Brazilian companies.</p>
-                </div>
-                <div class="mb-6 pl-8 relative timeline-item-hidden">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Drupal/PHP Developer</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">Itelios do Brasil • Aug 2012 - Jun 2014</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">Developed web portal for major Brazilian telecom company. Projects for Ogilvy and Y&R agencies.</p>
-                </div>
-                <div class="mb-6 pl-8 relative timeline-item-hidden">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Drupal/PHP Analyst/Developer</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">Webdrop Desenvolvimento Web • Nov 2010 - Jun 2012</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">National and international projects for Pioneer, Valor Econômico, Whiskas, VeriSign, Natura. Allocated in Argentina.</p>
-                </div>
-                <div class="mb-6 pl-8 relative timeline-item-hidden">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">Intern - Intranet Support</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">IPEN (Nuclear Energy Research Institute) • Jul 2010 - Nov 2010</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">SharePoint implementation and SQL Server support.</p>
-                </div>
+                {% endfor %}
             </div>
             <div class="text-center mt-8">
                 <button id="toggleExperience" class="px-8 py-3 bg-gradient-to-r from-neon-cyan to-neon-magenta text-white font-bold rounded-full uppercase tracking-wider transition-all duration-300 shadow-lg shadow-neon-cyan/30 hover:shadow-neon-magenta/50 hover:scale-105">

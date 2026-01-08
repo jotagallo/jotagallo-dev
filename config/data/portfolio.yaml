@@ -1,23 +1,23 @@
-title: 'João Otávio Gallo - Senior Fullstack Developer'
+title: 'JOTAGALLO - Modern Fullstack & Full-Cycle Web Development'
 
 skills:
-  PHP: 95
-  Drupal: 95
-  Symfony: 93
-  Laravel: 90
-  'JavaScript/TypeScript': 92
-  'React & Vue.js': 88
-  'MySQL/PostgreSQL': 90
-  'Docker & DevOps': 88
-  'AWS & Cloud': 85
-  'Git & CI/CD': 92
+  PHP: 15
+  Drupal: 15
+  Symfony: 7
+  Laravel: 5
+  'JavaScript/TypeScript': 8
+  'React & Vue.js': 6
+  'MySQL/PostgreSQL': 12
+  'Docker & DevOps': 7
+  'AWS & Cloud': 6
+  'Git & CI/CD': 10
 
 projects:
   - name: 'Sourceful IT Services'
     year: '2023 - 2024'
     description: 'Senior PHP/Drupal Developer and Tech Lead implementing enterprise projects for major European clients. Led teams, mentored juniors, and implemented CI/CD workflows with cloud migration.'
     technologies:
-      - 'Drupal 8-10'
+      - 'Drupal 9-10'
       - 'Symfony'
       - 'React'
       - 'PostgreSQL'
@@ -75,3 +75,100 @@ projects:
       - 'Python'
       - 'Angular'
       - 'MySQL'
+
+experience:
+  - title: 'Drupal Specialist Consultant'
+    company: 'Squadra Digital'
+    period: 'Dec 2024 - Jun 2025'
+    description: 'Drupal multi-site solutions for ABInbev, one of the largest beverage companies in the world.'
+    hidden: false
+
+  - title: 'Senior PHP/Symfony Developer'
+    company: 'Andela'
+    period: 'Sep 2024 - Dec 2024'
+    description: 'Fullstack development for Inchcape, global distribution leader in premium automotive sectors.'
+    hidden: false
+
+  - title: 'PHP/Drupal Tech Lead'
+    company: 'Sourceful IT Services'
+    period: 'May 2023 - May 2024'
+    description: 'Leading teams, implementing projects for European clients, and migrating cloud environments with CI/CD.'
+    hidden: false
+
+  - title: 'PHP/Drupal Tech Lead'
+    company: 'City Connect BR'
+    period: 'Feb 2023 - May 2023'
+    description: 'Technical leader for Drupal projects in Brazilian public sector. Leading team for FIRJAN industry federation.'
+    hidden: false
+
+  - title: 'Senior Drupal Developer'
+    company: 'WeKnow Inc.'
+    period: 'Oct 2022 - Feb 2023'
+    description: 'Contractor for US-based web agency, developing Drupal and VueJS projects.'
+    hidden: false
+
+  - title: 'Drupal Tech Lead & Fullstack Developer'
+    company: 'Arctouch (Devrank)'
+    period: 'Jan 2022 - Sep 2022'
+    description: 'Tech Lead for GSK pharmaceutical project. Fullstack developer for Quizlet educational startup.'
+    hidden: false
+
+  - title: 'Drupal Fullstack Developer'
+    company: 'Bluetent'
+    period: 'Sep 2019 - Jan 2022'
+    description: 'Full-remote for USA vacation rentals software company, serving hundreds of clients nationwide.'
+    hidden: false
+
+  - title: 'Team Coordinator & Drupal Tech Lead'
+    company: 'EF5 Web Development'
+    period: 'Feb 2019 - Sep 2019'
+    description: 'Coordinated multi-language projects for major food company. Technical leadership for deployment and DevOps.'
+    hidden: false
+
+  - title: 'Senior PHP Developer'
+    company: 'Opah IT Consulting'
+    period: 'Jun 2018 - Feb 2019'
+    description: 'Led PHP projects with Symfony and Laravel for major national clients.'
+    hidden: true
+
+  - title: 'Senior Drupal Developer'
+    company: 'GLOBANT'
+    period: 'Sep 2016 - May 2018'
+    description: 'International Drupal team for enterprise projects. Daily communication with global teams.'
+    hidden: true
+
+  - title: 'Senior Drupal/PHP Developer'
+    company: 'VORTTEX'
+    period: 'Apr 2016 - Aug 2016'
+    description: 'Led Drupal and PHP development for JBS and SADIA food companies.'
+    hidden: true
+
+  - title: 'PHP/Drupal Developer'
+    company: 'Valor Econômico'
+    period: 'Nov 2014 - Feb 2016'
+    description: 'Development and maintenance for Brazil''s leading economic media company.'
+    hidden: true
+
+  - title: 'Java Android Developer'
+    company: 'Resource IT Solutions'
+    period: 'Jun 2014 - Nov 2014'
+    description: 'Native mobile app development for major Brazilian companies.'
+    hidden: true
+
+  - title: 'Drupal/PHP Developer'
+    company: 'Itelios do Brasil'
+    period: 'Aug 2012 - Jun 2014'
+    description: 'Developed web portal for major Brazilian telecom company. Projects for Ogilvy and Y&R agencies.'
+    hidden: true
+
+  - title: 'Drupal/PHP Analyst/Developer'
+    company: 'Webdrop Desenvolvimento Web'
+    period: 'Nov 2010 - Jun 2012'
+    description: 'National and international projects for Pioneer, Valor Econômico, Whiskas, VeriSign, Natura. Allocated in Argentina.'
+    hidden: true
+
+  - title: 'Intern - Intranet Support'
+    company: 'IPEN (Nuclear Energy Research Institute)'
+    period: 'Jul 2010 - Nov 2010'
+    description: 'SharePoint implementation and SQL Server support.'
+    hidden: true

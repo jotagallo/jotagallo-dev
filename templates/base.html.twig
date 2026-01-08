@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}João Otávio Gallo - Senior Fullstack Developer{% endblock %}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -31,8 +32,10 @@
 <body class="bg-slate-950 text-white font-sans overflow-x-hidden">
     <!-- Fixed Navigation -->
     <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 md:px-8 py-5 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-black bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent hover:scale-105 transition-transform duration-200">JOTAGALLO</a>
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
+            <a href="#home" class="hover:scale-105 transition-transform duration-200">
+                <img src="{{ asset('img/jotagallo-logo.svg') }}" alt="JOTAGALLO" class="h-12">
+            </a>
             
             <!-- Hamburger Button -->
             <button id="mobile-menu-button" class="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center group">

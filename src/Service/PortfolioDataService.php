@@ -29,6 +29,11 @@ class PortfolioDataService
         return $this->data['projects'] ?? [];
     }
 
+    public function getExperience(): array
+    {
+        return $this->data['experience'] ?? [];
+    }
+
     public function getAllData(): array
     {
         return $this->data;

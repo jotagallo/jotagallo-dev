@@ -83,6 +83,49 @@ body::before {
     50% { opacity: 0.7; }
 }
 
+/* Floating animation for particles */
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0) translateX(0);
+        opacity: 0.6;
+    }
+    50% { 
+        transform: translateY(-20px) translateX(10px);
+        opacity: 1;
+    }
+}
+
+.animate-float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.delay-500 {
+    animation-delay: 0.5s;
+}
+
+.delay-1000 {
+    animation-delay: 1s;
+}
+
+.delay-1500 {
+    animation-delay: 1.5s;
+}
+
+/* Draw animation for SVG paths */
+@keyframes draw {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.animate-draw {
+    stroke-dasharray: 1000;
+    animation: draw 3s ease-in-out infinite;
+}
+
 .container {
     max-width: 1400px;
     margin: 0 auto;

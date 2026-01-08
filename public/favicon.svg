@@ -1,0 +1,35 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="faviconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff3366;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc0066;stop-opacity:1" />
+    </linearGradient>
+    <filter id="faviconGlow">
+      <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="28" fill="#0f172a" stroke="url(#faviconGradient)" stroke-width="3" filter="url(#faviconGlow)"/>
+  
+  <!-- JG monogram -->
+  <text x="32" y="42" 
+        font-family="Arial, sans-serif" 
+        font-size="26" 
+        font-weight="900" 
+        text-anchor="middle"
+        fill="url(#faviconGradient)" 
+        filter="url(#faviconGlow)">JG</text>
+  
+  <!-- Accent dots -->
+  <circle cx="18" cy="18" r="1.5" fill="#ff3366">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="46" cy="18" r="1.5" fill="#ff0066">
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+</svg>

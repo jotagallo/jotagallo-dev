@@ -1,0 +1,72 @@
+<svg width="360" height="100" viewBox="0 0 360 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff3366;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff0066;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#cc0066;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff3366;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#cc0066;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Circuit line decoration left -->
+  <path d="M 5,50 L 30,50 L 30,30 L 45,30" 
+        stroke="#ff3366" 
+        stroke-width="2" 
+        fill="none" 
+        opacity="0.6"/>
+  <circle cx="30" cy="50" r="2.5" fill="#ff3366" opacity="0.8"/>
+  <circle cx="30" cy="30" r="2.5" fill="#ff0066" opacity="0.8"/>
+  
+  <!-- Main text JOTAGALLO -->
+  <text x="55" y="65" 
+        font-family="Arial, sans-serif" 
+        font-size="42" 
+        font-weight="900" 
+        letter-spacing="2"
+        fill="url(#logoGradient)" 
+        filter="url(#glow)">JOTAGALLO</text>
+  
+  <!-- Artistic underline accent -->
+  <path d="M 55,72 Q 180,79 305,72" 
+        stroke="url(#accentGradient)" 
+        stroke-width="2.5" 
+        fill="none"
+        opacity="0.7">
+    <animate attributeName="d" 
+             values="M 55,72 Q 180,79 305,72;
+                     M 55,72 Q 180,75 305,72;
+                     M 55,72 Q 180,79 305,72" 
+             dur="3s" 
+             repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Tech accent dots right -->
+  <circle cx="315" cy="45" r="3" fill="#ff3366">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="328" cy="53" r="2.5" fill="#ff0066">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="2.7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="340" cy="48" r="2.2" fill="#cc0066">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="3.2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Circuit decoration right side -->
+  <path d="M 320,65 L 320,80 L 350,80" 
+        stroke="#cc0066" 
+        stroke-width="2" 
+        fill="none" 
+        opacity="0.5"/>
+  <circle cx="320" cy="80" r="2" fill="#cc0066" opacity="0.7"/>
+  <circle cx="350" cy="80" r="2" fill="#ff0066" opacity="0.7"/>
+</svg>
