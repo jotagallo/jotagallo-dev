@@ -11,10 +11,10 @@
             theme: {
                 extend: {
                     colors: {
-                        'neon-cyan': '#00f0ff',
-                        'neon-magenta': '#ff00aa',
-                        'neon-purple': '#9d00ff',
-                        'neon-green': '#00ff88',
+                        'neon-cyan': '#ff3366',
+                        'neon-magenta': '#ff0066',
+                        'neon-purple': '#cc0066',
+                        'neon-green': '#ff1744',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -33,12 +33,32 @@
     <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/10">
         <div class="max-w-7xl mx-auto px-4 md:px-8 py-5 flex justify-between items-center">
             <a href="#home" class="text-2xl font-black bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent hover:scale-105 transition-transform duration-200">JOTAGALLO</a>
-            <ul class="flex gap-8">
+            
+            <!-- Hamburger Button -->
+            <button id="mobile-menu-button" class="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center group">
+                <span class="block w-6 h-0.5 bg-neon-cyan transition-all duration-300 group-hover:bg-neon-magenta"></span>
+                <span class="block w-6 h-0.5 bg-neon-cyan transition-all duration-300 group-hover:bg-neon-magenta"></span>
+                <span class="block w-6 h-0.5 bg-neon-cyan transition-all duration-300 group-hover:bg-neon-magenta"></span>
+            </button>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex gap-8">
                 <li><a href="#home" class="text-slate-400 font-medium text-sm hover:text-neon-cyan transition-colors duration-300 relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-neon-cyan after:to-neon-purple hover:after:w-full after:transition-all after:duration-300">Home</a></li>
                 <li><a href="#about" class="text-slate-400 font-medium text-sm hover:text-neon-cyan transition-colors duration-300 relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-neon-cyan after:to-neon-purple hover:after:w-full after:transition-all after:duration-300">About</a></li>
                 <li><a href="#skills" class="text-slate-400 font-medium text-sm hover:text-neon-cyan transition-colors duration-300 relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-neon-cyan after:to-neon-purple hover:after:w-full after:transition-all after:duration-300">Skills</a></li>
                 <li><a href="#projects" class="text-slate-400 font-medium text-sm hover:text-neon-cyan transition-colors duration-300 relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-neon-cyan after:to-neon-purple hover:after:w-full after:transition-all after:duration-300">Projects</a></li>
                 <li><a href="#contact" class="text-slate-400 font-medium text-sm hover:text-neon-cyan transition-colors duration-300 relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-neon-cyan after:to-neon-purple hover:after:w-full after:transition-all after:duration-300">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/10">
+            <ul class="flex flex-col py-4">
+                <li><a href="#home" class="block px-8 py-3 text-slate-400 font-medium text-base hover:text-neon-cyan hover:bg-white/5 transition-all duration-300">Home</a></li>
+                <li><a href="#about" class="block px-8 py-3 text-slate-400 font-medium text-base hover:text-neon-cyan hover:bg-white/5 transition-all duration-300">About</a></li>
+                <li><a href="#skills" class="block px-8 py-3 text-slate-400 font-medium text-base hover:text-neon-cyan hover:bg-white/5 transition-all duration-300">Skills</a></li>
+                <li><a href="#projects" class="block px-8 py-3 text-slate-400 font-medium text-base hover:text-neon-cyan hover:bg-white/5 transition-all duration-300">Projects</a></li>
+                <li><a href="#contact" class="block px-8 py-3 text-slate-400 font-medium text-base hover:text-neon-cyan hover:bg-white/5 transition-all duration-300">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -57,6 +77,25 @@
     <script>
         // Toggle experience timeline
         document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                // Close mobile menu when clicking a link
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', function() {
+                        mobileMenu.classList.add('hidden');
+                    });
+                });
+            }
+
+            // Toggle experience timeline
             const toggleBtn = document.getElementById('toggleExperience');
             const hiddenItems = document.querySelectorAll('.timeline-item-hidden');
             let isExpanded = false;
