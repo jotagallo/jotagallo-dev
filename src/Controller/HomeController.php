@@ -46,7 +46,7 @@ class HomeController extends AbstractController
             [
                 'name' => 'Opah IT Consulting',
                 'year' => '2018 - 2019',
-                'description' => 'Senior PHP Developer leading most of the company\'s PHP projects with major national clients. Direct allocation and development with enterprise clients using modern PHP frameworks.',
+                'description' => 'Senior PHP Developer leading most of the company\'s PHP projects with major national clients, like KPMG and Ativo. Direct allocation and development with enterprise clients using modern PHP frameworks.',
                 'technologies' => ['Symfony', 'Laravel', 'PostgreSQL', 'ElasticSearch', 'Docker'],
             ],
             [
