@@ -1,80 +1,86 @@
-<section class="hero" id="home">
-    <div class="container">
-        <h1 class="hero-title">
-            <span class="gradient-text">JOTAGALLO</span>
+<section class="min-h-screen flex items-center justify-center relative py-32 px-4 md:px-8 overflow-hidden" id="home">
+    <div class="max-w-7xl mx-auto text-center relative z-10">
+        <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight">
+            <span class="bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent">JOTAGALLO</span>
         </h1>
-        <p class="lead">Modern Fullstack & Full-Cycle Web Development<br>Enterprise-grade solutions with 15 years of expertise in PHP, Drupal, Symfony, Laravel and modern JavaScript.</p>
-        <div class="cta-buttons">
-            <a href="#projects" class="btn btn-primary">View My Work</a>
-            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        <p class="text-lg md:text-xl lg:text-2xl text-slate-400 mb-12 max-w-3xl mx-auto font-light leading-relaxed">Modern Fullstack & Full-Cycle Web Development<br class="hidden md:block">Enterprise-grade solutions with 15 years of expertise in PHP, Drupal, Symfony, Laravel and modern JavaScript.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#projects" class="px-10 py-4 bg-gradient-to-r from-neon-cyan to-neon-purple text-white font-semibold rounded-xl hover:-translate-y-1 transition-all duration-300 shadow-lg shadow-neon-cyan/50 hover:shadow-xl hover:shadow-neon-cyan/70">View My Work</a>
+            <a href="#contact" class="px-10 py-4 bg-white/5 backdrop-blur-md text-white font-semibold rounded-xl border-2 border-white/10 hover:border-neon-cyan hover:-translate-y-1 transition-all duration-300 hover:shadow-lg hover:shadow-neon-cyan/50">Get In Touch</a>
         </div>
     </div>
 </section>
 
-<section class="section" id="services">
-    <div class="container">
-        <h2 class="section-title">What We Do</h2>
-        <p class="section-subtitle">Full-stack expertise with a focus on performance, scalability, and user experience</p>
+<section class="py-24 px-4 md:px-8 relative" id="services">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-4 tracking-tight">What We Do</h2>
+        <p class="text-lg md:text-xl text-slate-400 text-center mb-16 max-w-2xl mx-auto">Full-stack expertise with a focus on performance, scalability, and user experience</p>
         
-        <!-- Tech Stack Icons -->
-        <div class="tech-stack-grid">
-            <div class="tech-icon" title="PHP">
-                <img src="{{ asset('img/tech/php.svg') }}" alt="PHP">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:-translate-y-3 hover:border-neon-cyan transition-all duration-300 hover:shadow-lg hover:shadow-neon-cyan/50 relative overflow-hidden group">
+                <h3 class="text-2xl font-bold mb-4">🚀 Enterprise CMS & Backend</h3>
+                <p class="text-slate-400 leading-relaxed">Expert solutions in Drupal, Symfony, and Laravel. Building robust, scalable enterprise systems with 15 years of PHP experience, 7 years with Symfony, and 5 years mastering Laravel.</p>
             </div>
-            <div class="tech-icon" title="Drupal">
-                <img src="{{ asset('img/tech/drupal.svg') }}" alt="Drupal">
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:-translate-y-3 hover:border-neon-cyan transition-all duration-300 hover:shadow-lg hover:shadow-neon-cyan/50 relative overflow-hidden group">
+                <h3 class="text-2xl font-bold mb-4">💻 Fullstack Development</h3>
+                <p class="text-slate-400 leading-relaxed">Modern web applications with React, Vue.js, and TypeScript. Complete solutions from frontend to backend, delivering exceptional user experiences.</p>
             </div>
-            <div class="tech-icon" title="Symfony">
-                <img src="{{ asset('img/tech/symfony.svg') }}" alt="Symfony">
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:-translate-y-3 hover:border-neon-cyan transition-all duration-300 hover:shadow-lg hover:shadow-neon-cyan/50 relative overflow-hidden group">
+                <h3 class="text-2xl font-bold mb-4">☁️ DevOps & Cloud Architecture</h3>
+                <p class="text-slate-400 leading-relaxed">Technical leadership with expertise in Docker, AWS, CI/CD pipelines, and managing international teams. 5 years of full-remote experience with global companies.</p>
             </div>
-            <div class="tech-icon" title="Laravel">
-                <img src="{{ asset('img/tech/laravel.svg') }}" alt="Laravel">
-            </div>
-            <div class="tech-icon" title="JavaScript">
-                <img src="{{ asset('img/tech/javascript.svg') }}" alt="JavaScript">
-            </div>
-            <div class="tech-icon" title="TypeScript">
-                <img src="{{ asset('img/tech/typescript.svg') }}" alt="TypeScript">
-            </div>
-            <div class="tech-icon" title="React">
-                <img src="{{ asset('img/tech/react.svg') }}" alt="React">
-            </div>
-            <div class="tech-icon" title="Vue.js">
-                <img src="{{ asset('img/tech/vue.svg') }}" alt="Vue.js">
-            </div>
-            <div class="tech-icon" title="Docker">
-                <img src="{{ asset('img/tech/docker.svg') }}" alt="Docker">
-            </div>
-            <div class="tech-icon" title="Kubernetes">
-                <img src="{{ asset('img/tech/kubernetes.svg') }}" alt="Kubernetes">
-            </div>
-            <div class="tech-icon" title="AWS">
-                <img src="{{ asset('img/tech/aws.svg') }}" alt="AWS">
-            </div>
-            <div class="tech-icon" title="Linux">
-                <img src="{{ asset('img/tech/linux.svg') }}" alt="Linux">
-            </div>
-            <div class="tech-icon" title="MySQL">
-                <img src="{{ asset('img/tech/mysql.svg') }}" alt="MySQL">
-            </div>
-            <div class="tech-icon" title="PostgreSQL">
-                <img src="{{ asset('img/tech/postgresql.svg') }}" alt="PostgreSQL">
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:-translate-y-3 hover:border-neon-cyan transition-all duration-300 hover:shadow-lg hover:shadow-neon-cyan/50 relative overflow-hidden group">
+                <h3 class="text-2xl font-bold mb-4">🤖 AI Integration & Innovation</h3>
+                <p class="text-slate-400 leading-relaxed">Integrating cutting-edge AI solutions with OpenAI, Claude, and other leading AI engines. Building intelligent features, chatbots, and AI-powered automation into modern applications.</p>
             </div>
         </div>
 
-        <div class="grid" style="margin-top: 4rem;">
-            <div class="card">
-                <h3>🚀 Enterprise CMS & Backend</h3>
-                <p>Expert solutions in Drupal, Symfony, and Laravel. Building robust, scalable enterprise systems with 15 years of PHP experience, 7 years with Symfony, and 5 years mastering Laravel.</p>
+        <!-- Tech Stack Icons -->
+        <div class="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-7 gap-6 max-w-5xl mx-auto mt-12 p-8 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl">
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="PHP">
+                <img src="{{ asset('img/tech/php.svg') }}" alt="PHP" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
             </div>
-            <div class="card">
-                <h3>💻 Fullstack Development</h3>
-                <p>Modern web applications with React, Vue.js, and TypeScript. Complete solutions from frontend to backend, delivering exceptional user experiences.</p>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="Drupal">
+                <img src="{{ asset('img/tech/drupal.svg') }}" alt="Drupal" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
             </div>
-            <div class="card">
-                <h3>☁️ DevOps & Cloud Architecture</h3>
-                <p>Technical leadership with expertise in Docker, AWS, CI/CD pipelines, and managing international teams. 5 years of full-remote experience with global companies.</p>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="Symfony">
+                <img src="{{ asset('img/tech/symfony.svg') }}" alt="Symfony" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="Laravel">
+                <img src="{{ asset('img/tech/laravel.svg') }}" alt="Laravel" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="JavaScript">
+                <img src="{{ asset('img/tech/javascript.svg') }}" alt="JavaScript" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="TypeScript">
+                <img src="{{ asset('img/tech/typescript.svg') }}" alt="TypeScript" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="React">
+                <img src="{{ asset('img/tech/react.svg') }}" alt="React" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="Vue.js">
+                <img src="{{ asset('img/tech/vue.svg') }}" alt="Vue.js" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="Python">
+                <img src="{{ asset('img/tech/python.svg') }}" alt="Python" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="Docker">
+                <img src="{{ asset('img/tech/docker.svg') }}" alt="Docker" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="Linux">
+                <img src="{{ asset('img/tech/linux.svg') }}" alt="Linux" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="AWS">
+                <img src="{{ asset('img/tech/aws.svg') }}" alt="AWS" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="MySQL">
+                <img src="{{ asset('img/tech/mysql.svg') }}" alt="MySQL" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
+            </div>
+            <div class="flex items-center justify-center p-4 bg-slate-800/50 rounded-xl border border-white/10 hover:-translate-y-2 hover:scale-105 hover:border-neon-cyan hover:shadow-lg hover:shadow-neon-cyan/50 transition-all duration-300 cursor-pointer aspect-square" title="PostgreSQL">
+                <img src="{{ asset('img/tech/postgresql.svg') }}" alt="PostgreSQL" class="w-full h-full object-contain brightness-110 hover:brightness-130 hover:drop-shadow-[0_0_10px_rgba(0,240,255,0.5)] transition-all duration-300">
             </div>
         </div>
+
+        
     </div>
 </section>

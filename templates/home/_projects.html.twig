@@ -1,29 +1,24 @@
-<section class="section bg-light" id="projects">
-    <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">A showcase of my recent work and technical achievements</p>
+<section class="py-24 px-4 md:px-8 bg-slate-900" id="projects">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-4 tracking-tight">Featured Projects</h2>
+        <p class="text-lg md:text-xl text-slate-400 text-center mb-16 max-w-2xl mx-auto">A showcase of my recent work and technical achievements</p>
         
-        <div class="projects-grid">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {% for project in projects %}
-            <div class="project-card">
-                <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                    <h3 style="margin: 0;">{{ project.name }}</h3>
-                    <span style="color: var(--neon-magenta); font-size: 0.9rem; font-weight: 600; white-space: nowrap; margin-left: 1rem;">{{ project.year }}</span>
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:-translate-y-3 hover:scale-[1.02] hover:border-neon-cyan transition-all duration-300 hover:shadow-lg hover:shadow-neon-cyan/50 relative overflow-hidden">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-xl font-bold">{{ project.name }}</h3>
+                    <span class="text-neon-magenta text-sm font-semibold whitespace-nowrap ml-4">{{ project.year }}</span>
                 </div>
-                <p>{{ project.description }}</p>
-                <div class="tech-tags">
+                <p class="text-slate-400 leading-relaxed mb-6">{{ project.description }}</p>
+                <div class="flex flex-wrap gap-2">
                     {% for tech in project.technologies %}
-                    <span class="tag">{{ tech }}</span>
+                    <span class="bg-slate-800 text-neon-cyan px-3 py-1.5 rounded-lg text-xs font-medium border border-white/10 hover:bg-white/5 hover:border-neon-cyan hover:-translate-y-0.5 transition-all duration-200">{{ tech }}</span>
                     {% endfor %}
                 </div>
             </div>
             {% endfor %}
         </div>
-
-        <div class="center" style="margin-top: 4rem;">
-            <h2>Ready to Build Something Amazing?</h2>
-            <p>I'm always excited to collaborate on innovative projects and solve challenging problems.</p>
-            <a href="#contact" class="btn btn-primary">Let's Talk</a>
-        </div>
+       
     </div>
 </section>

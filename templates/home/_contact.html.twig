@@ -1,50 +1,49 @@
-<section class="section" id="contact">
-    <div class="container">
-        <h2 class="section-title">Let's Connect</h2>
-        <p class="section-subtitle">Ready to bring your ideas to life? Let's start a conversation</p>
+<section class="py-24 px-4 md:px-8" id="contact">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black text-center mb-4 tracking-tight">Let's Connect</h2>
+        <p class="text-lg md:text-xl text-slate-400 text-center mb-16 max-w-2xl mx-auto">Ready to bring your ideas to life? Let's start a conversation</p>
         
-        <div class="contact-content">
-            <div class="contact-info">
-                <h2>Contact Information</h2>
-                <div class="info-item">
-                    <strong>📧 Email</strong>
-                    <p><a href="mailto:joao.otavio.gallo@gmail.com">joao.otavio.gallo@gmail.com</a></p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+            <a href="mailto:joao.otavio.gallo@gmail.com" class="group p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-white/10 hover:border-neon-cyan/50 transition-all duration-300 hover:-translate-y-2 text-center">
+                <div class="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                    <img src="/img/contact/email.svg" alt="Email" class="w-full h-full drop-shadow-lg group-hover:drop-shadow-[0_0_15px_rgba(0,240,255,0.7)]">
                 </div>
-                <div class="info-item">
-                    <strong>📱 WhatsApp</strong>
-                    <p><a href="https://wa.me/5511976787933">+55 11 97678-7933</a></p>
-                </div>
-                <div class="info-item">
-                    <strong>📍 Location</strong>
-                    <p>São Paulo, Brazil</p>
-                </div>
-                <div class="info-item">
-                    <strong>🔗 Connect</strong>
-                    <p>
-                        <a href="https://github.com/jotagallo" target="_blank">GitHub</a> •
-                        <a href="http://br.linkedin.com/in/jotagallo" target="_blank">LinkedIn</a>
-                    </p>
-                </div>
-            </div>
+                <h3 class="text-xl font-bold text-neon-cyan mb-2">Email</h3>
+                <p class="text-slate-400 text-sm break-words overflow-hidden">joao.otavio.gallo@gmail.com</p>
+            </a>
 
-            <div class="contact-form">
-                <h2>Send a Message</h2>
-                <form action="{{ path('home') }}#contact" method="post">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" placeholder="John Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" rows="6" placeholder="Tell me about your project..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message →</button>
-                </form>
-            </div>
+            <a href="https://wa.me/5511976787933" target="_blank" class="group p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-white/10 hover:border-neon-cyan/50 transition-all duration-300 hover:-translate-y-2 text-center">
+                <div class="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                    <img src="/img/contact/whatsapp.svg" alt="WhatsApp" class="w-full h-full drop-shadow-lg group-hover:drop-shadow-[0_0_15px_rgba(0,240,255,0.7)]">
+                </div>
+                <h3 class="text-xl font-bold text-neon-cyan mb-2">WhatsApp</h3>
+                <p class="text-slate-400 text-sm">+55 11 97678-7933</p>
+            </a>
+
+            <a href="http://br.linkedin.com/in/jotagallo" target="_blank" class="group p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-white/10 hover:border-neon-cyan/50 transition-all duration-300 hover:-translate-y-2 text-center">
+                <div class="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                    <img src="/img/contact/linkedin.svg" alt="LinkedIn" class="w-full h-full drop-shadow-lg group-hover:drop-shadow-[0_0_15px_rgba(0,240,255,0.7)]" style="filter: brightness(0) saturate(100%) invert(79%) sepia(98%) saturate(2467%) hue-rotate(156deg) brightness(103%) contrast(102%);">
+                </div>
+                <h3 class="text-xl font-bold text-neon-cyan mb-2">LinkedIn</h3>
+                <p class="text-slate-400 text-sm break-words overflow-hidden">linkedin.com/in/jotagallo</p>
+            </a>
+
+            <a href="https://github.com/jotagallo" target="_blank" class="group p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-white/10 hover:border-neon-cyan/50 transition-all duration-300 hover:-translate-y-2 text-center">
+                <div class="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                    <img src="/img/contact/github.svg" alt="GitHub" class="w-full h-full drop-shadow-lg group-hover:drop-shadow-[0_0_15px_rgba(0,240,255,0.7)]">
+                </div>
+                <h3 class="text-xl font-bold text-neon-cyan mb-2">GitHub</h3>
+                <p class="text-slate-400 text-sm break-words overflow-hidden">github.com/jotagallo</p>
+            </a>
+
+            <a href="/cv/Joao_Otavio_Gallo_CV.pdf" download class="group p-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 hover:bg-white/10 hover:border-neon-cyan/50 transition-all duration-300 hover:-translate-y-2 text-center">
+                <div class="w-16 h-16 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 flex items-center justify-center">
+                    <img src="/img/contact/cv.svg" alt="Download CV" class="w-full h-full drop-shadow-lg group-hover:drop-shadow-[0_0_20px_rgba(255,0,170,0.7)]">
+                </div>
+                <h3 class="text-xl font-bold text-neon-cyan mb-2">Download CV</h3>
+                <p class="text-slate-400 text-sm">Get my full resume</p>
+            </a>
         </div>
     </div>
 </section>
+

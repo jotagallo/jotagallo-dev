@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}João Otávio Gallo - Senior Fullstack Developer{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-cyan': '#00f0ff',
+                        'neon-magenta': '#ff00aa',
+                        'neon-purple': '#9d00ff',
+                        'neon-green': '#00ff88',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-slate-950 text-white font-sans overflow-x-hidden">
     <!-- Fixed Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <a href="#home" class="logo">JOTAGALLO</a>
-            <ul class="nav-menu">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-5 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-black bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent hover:scale-105 transition-transform duration-200">JOTAGALLO</a>
+            <ul class="flex gap-8">
+                <li><a href="#home" class="text-slate-400 font-medium text-sm hover:text-neon-cyan transition-colors duration-300 relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-neon-cyan after:to-neon-purple hover:after:w-full after:transition-all after:duration-300">Home</a></li>
+                <li><a href="#about" class="text-slate-400 font-medium text-sm hover:text-neon-cyan transition-colors duration-300 relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-neon-cyan after:to-neon-purple hover:after:w-full after:transition-all after:duration-300">About</a></li>
+                <li><a href="#skills" class="text-slate-400 font-medium text-sm hover:text-neon-cyan transition-colors duration-300 relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-neon-cyan after:to-neon-purple hover:after:w-full after:transition-all after:duration-300">Skills</a></li>
+                <li><a href="#projects" class="text-slate-400 font-medium text-sm hover:text-neon-cyan transition-colors duration-300 relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-neon-cyan after:to-neon-purple hover:after:w-full after:transition-all after:duration-300">Projects</a></li>
+                <li><a href="#contact" class="text-slate-400 font-medium text-sm hover:text-neon-cyan transition-colors duration-300 relative after:absolute after:bottom-[-5px] after:left-0 after:w-0 after:h-0.5 after:bg-gradient-to-r after:from-neon-cyan after:to-neon-purple hover:after:w-full after:transition-all after:duration-300">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -28,9 +47,10 @@
         {% block body %}{% endblock %}
     </main>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; {{ "now"|date("Y") }} João Otávio Gallo. Crafted with Symfony & ❤️</p>
+    <footer class="bg-slate-900 border-t border-white/10 py-12 mt-24 text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-slate-400 text-sm mb-2">&copy; {{ "now"|date("Y") }} João Otávio Gallo. Crafted with Symfony & ❤️</p>
+            <p class="text-slate-500 text-xs">Built with assistance from <span class="text-neon-cyan">GitHub Copilot</span> powered by <span class="text-neon-purple">Claude Sonnet 4.5</span> 🤖✨</p>
         </div>
     </footer>
 
