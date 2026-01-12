@@ -1,30 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}João Otávio Gallo - Senior Fullstack Developer{% endblock %}</title>
-    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+    {% include 'includes/meta.html.twig' %}
+    
+    {# Tailwind CSS #}
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        'neon-cyan': '#ff3366',
-                        'neon-magenta': '#ff0066',
-                        'neon-purple': '#cc0066',
-                        'neon-green': '#ff1744',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
+    <script src="{{ asset('js/tailwind-config.js') }}"></script>
+    
+    {# Stylesheets #}
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    
+    {# Fonts #}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -77,62 +63,6 @@
         </div>
     </footer>
 
-    <script>
-        // Toggle experience timeline
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', function() {
-                    mobileMenu.classList.toggle('hidden');
-                });
-
-                // Close mobile menu when clicking a link
-                const mobileLinks = mobileMenu.querySelectorAll('a');
-                mobileLinks.forEach(link => {
-                    link.addEventListener('click', function() {
-                        mobileMenu.classList.add('hidden');
-                    });
-                });
-            }
-
-            // Toggle experience timeline
-            const toggleBtn = document.getElementById('toggleExperience');
-            const hiddenItems = document.querySelectorAll('.timeline-item-hidden');
-            let isExpanded = false;
-
-            if (toggleBtn) {
-                toggleBtn.addEventListener('click', function() {
-                    isExpanded = !isExpanded;
-                    
-                    hiddenItems.forEach(item => {
-                        if (isExpanded) {
-                            item.classList.add('show');
-                        } else {
-                            item.classList.remove('show');
-                        }
-                    });
-                    
-                    toggleBtn.textContent = isExpanded ? 'Show Less Experience' : 'Show More Experience';
-                });
-            }
-
-            // Smooth scroll for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    const href = this.getAttribute('href');
-                    if (href !== '#' && href.length > 1) {
-                        e.preventDefault();
-                        const target = document.querySelector(href);
-                        if (target) {
-                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        }
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>

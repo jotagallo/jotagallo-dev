@@ -1,0 +1,44 @@
+{# SEO Meta Tags #}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}JOTAGALLO - Modern Fullstack & Full-Cycle Web Development{% endblock %}</title>
+
+{# SEO Meta Tags #}
+<meta name="description" content="{% block description %}João Otávio Gallo - Senior Fullstack Developer specializing in PHP, Symfony, React, and modern web technologies. Expert in building scalable web applications and e-commerce solutions.{% endblock %}">
+<meta name="keywords" content="{% block keywords %}fullstack developer, web developer, PHP developer, Symfony, React, Laravel, JavaScript, TypeScript, senior developer, software engineer, full-cycle development, e-commerce, web development{% endblock %}">
+<meta name="author" content="João Otávio Gallo">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+<meta name="revisit-after" content="7 days">
+
+{# Open Graph / Facebook #}
+<meta property="og:type" content="website">
+<meta property="og:url" content="{% block og_url %}{{ app.request.uri }}{% endblock %}">
+<meta property="og:title" content="{% block og_title %}JOTAGALLO - Modern Fullstack & Full-Cycle Web Development{% endblock %}">
+<meta property="og:description" content="{% block og_description %}João Otávio Gallo - Senior Fullstack Developer specializing in PHP, Drupal, Laravel, Symfony, React, and modern web technologies.{% endblock %}">
+<meta property="og:image" content="{% block og_image %}{{ absolute_url(asset('img/jotagallo-og-image.jpg')) }}{% endblock %}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="JOTAGALLO">
+<meta property="og:locale" content="en_US">
+
+{# Twitter Card #}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{% block twitter_url %}{{ app.request.uri }}{% endblock %}">
+<meta name="twitter:title" content="{% block twitter_title %}JOTAGALLO - Modern Fullstack & Full-Cycle Web Development{% endblock %}">
+<meta name="twitter:description" content="{% block twitter_description %}João Otávio Gallo - Senior Fullstack Developer specializing in PHP, Symfony, React, and modern web technologies.{% endblock %}">
+<meta name="twitter:image" content="{% block twitter_image %}{{ absolute_url(asset('img/jotagallo-og-image.jpg')) }}{% endblock %}">
+<meta name="twitter:creator" content="@jotagallo">
+<meta name="twitter:site" content="@jotagallo">
+
+{# Canonical URL #}
+<link rel="canonical" href="{% block canonical %}{{ app.request.uri }}{% endblock %}">
+
+{# Favicon #}
+<link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
+<link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+
+{# Additional SEO #}
+<meta name="theme-color" content="#ff3366">
+<meta name="msapplication-TileColor" content="#ff3366">
+<meta name="format-detection" content="telephone=no">

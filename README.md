@@ -42,9 +42,9 @@ This is intentional — real developers don't need hand-holding.
 Senior Fullstack Developer | 15 years of experience  
 São Paulo, Brazil
 
-- 🎸 Passionate musician and multi-instrumentalist
-- 💼 5 years remote work for international companies
+- 💼 6 years remote work for international companies
 - 🎯 2 years as PHP Tech Lead
+- 🎸 Passionate musician and multi-instrumentalist
 - 👨‍👧 Proud father
 
 ## 📄 License
