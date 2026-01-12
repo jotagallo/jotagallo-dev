@@ -35,6 +35,13 @@ jobs:
           extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, dom, filter, gd, json, zip
           tools: composer:v2
 
+      - name: Create .env file
+        run: |
+          cp .env.example .env
+          APP_SECRET=$(openssl rand -hex 32)
+          sed -i "s/APP_ENV=dev/APP_ENV=prod/" .env
+          sed -i "s/APP_SECRET=secret_key/APP_SECRET=$APP_SECRET/" .env
+
       - name: Install Composer dependencies
         run: composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
 
