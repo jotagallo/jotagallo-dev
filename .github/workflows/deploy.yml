@@ -52,13 +52,10 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      - name: Updating environment
-        env:
-          BRANCH: ${{ steps.create_vars.outputs.branch }}
+      - name: Updating environment after deployment
         run: |
           echo "Waiting for the environment to be ready..."
           sleep 5
           ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-            ec2-user@${PREFIX}.us-east-1.elasticbeanstalk.com \
-            "composer install --no-plugins --prefer-dist --no-interaction && \
-             rm -rf var/cache/* "
+            ec2-user@${{ vars.APPLICATION_NAME }}.us-east-1.elasticbeanstalk.com \
+            "composer install --no-plugins --prefer-dist --no-interaction --optimize-autoloader"
