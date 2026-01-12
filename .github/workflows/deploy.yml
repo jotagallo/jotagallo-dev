@@ -57,14 +57,3 @@ jobs:
             --timeout 30 \
             --archive app.zip
       
-      - name: Set up SSH agent
-        uses: webfactory/ssh-agent@v0.9.0
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
-      - name: Updating environment after deployment
-        run: |
-          echo "Waiting for the environment to be ready..."
-          sleep 5
-          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-            ec2-user@${{ vars.APPLICATION_NAME }}.${{ vars.AWS_REGION }}.elasticbeanstalk.com "
