@@ -28,8 +28,18 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_REGION }}
 
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, dom, filter, gd, json, zip
+          tools: composer:v2
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --prefer-dist --no-interaction --optimize-autoloader
+
       - name: Zip source bundle
-        run: zip -r app.zip . -x '*.git*' '*.github*' 'vendor/*' 'node_modules/*'
+        run: zip -r app.zip . -x '*.git*' '*.github*'
 
       - name: Deploy to Elastic Beanstalk
         env:
@@ -57,5 +67,4 @@ jobs:
           echo "Waiting for the environment to be ready..."
           sleep 5
           ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
-            ec2-user@${{ vars.APPLICATION_NAME }}.us-east-1.elasticbeanstalk.com \
-            "composer install --no-plugins --prefer-dist --no-interaction --optimize-autoloader"
+            ec2-user@${{ vars.APPLICATION_NAME }}.${{ vars.AWS_REGION }}.elasticbeanstalk.com "
