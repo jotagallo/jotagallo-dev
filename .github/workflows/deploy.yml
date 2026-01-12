@@ -1,0 +1,64 @@
+name: Deploy to AWS
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install AWS CLI and EB CLI
+        run: |
+          pip install --upgrade pip
+          pip install awsebcli
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ vars.AWS_REGION }}
+
+      - name: Zip source bundle
+        run: zip -r app.zip . -x '*.git*' '*.github*' 'vendor/*' 'node_modules/*'
+
+      - name: Deploy to Elastic Beanstalk
+        env:
+          AWS_REGION: ${{ vars.AWS_REGION }}
+          ENVIRONMENT_NAME: ${{ vars.APPLICATION_NAME }}
+          APPLICATION_NAME: ${{ vars.APPLICATION_NAME }}
+          PLATFORM: Docker
+        run: |
+          eb init $APPLICATION_NAME --region $AWS_REGION --platform $PLATFORM
+          eb deploy $ENVIRONMENT_NAME \
+            --region $AWS_REGION \
+            --label "github-${GITHUB_SHA::8}" \
+            --verbose \
+            --staged \
+            --timeout 30 \
+            --archive app.zip
+      
+      - name: Set up SSH agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Updating environment
+        env:
+          BRANCH: ${{ steps.create_vars.outputs.branch }}
+        run: |
+          echo "Waiting for the environment to be ready..."
+          sleep 5
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \
+            ec2-user@${PREFIX}.us-east-1.elasticbeanstalk.com \
+            "composer install --no-plugins --prefer-dist --no-interaction && \
+             rm -rf var/cache/* "
