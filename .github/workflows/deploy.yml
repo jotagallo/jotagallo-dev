@@ -53,7 +53,7 @@ jobs:
           AWS_REGION: ${{ vars.AWS_REGION }}
           ENVIRONMENT_NAME: ${{ vars.APPLICATION_NAME }}
           APPLICATION_NAME: ${{ vars.APPLICATION_NAME }}
-          PLATFORM: PHP 8.3 running on 64bit Amazon Linux 2
+          PLATFORM: PHP
         run: |
           eb init $APPLICATION_NAME --region $AWS_REGION --platform $PLATFORM
           eb deploy $ENVIRONMENT_NAME \
