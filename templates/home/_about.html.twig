@@ -43,16 +43,18 @@
         </div>
 
         <div class="mt-16">
-            <h2 class="text-3xl font-bold mb-10 bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent">Professional Experience</h2>
-            <div class="relative pl-10 md:pl-12 border-l-2 border-gradient-to-b from-neon-cyan to-neon-purple" style="border-image: linear-gradient(to bottom, #ff3366, #cc0066) 1;">
-                {% for job in experience %}
-                <div class="mb-6 pl-8 relative {{ job.hidden ? 'timeline-item-hidden' : '' }}">
-                    <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
-                    <h3 class="text-lg md:text-xl font-bold mb-1">{{ job.title }}</h3>
-                    <p class="text-neon-magenta text-sm font-semibold mb-2">{{ job.company }} • {{ job.period }}</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">{{ job.description }}</p>
+            <h2 class="text-3xl font-bold mb-10 bg-gradient-to-r from-neon-cyan to-neon-purple bg-clip-text text-transparent text-center">Professional Experience</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="relative pl-10 md:pl-12 border-l-2 border-gradient-to-b from-neon-cyan to-neon-purple" style="border-image: linear-gradient(to bottom, #ff3366, #cc0066) 1;">
+                    {% for job in experience %}
+                    <div class="mb-6 pl-8 relative {{ job.hidden ? 'timeline-item-hidden' : '' }}">
+                        <div class="absolute left-[-3.25rem] md:left-[-3.5rem] top-1 w-4 h-4 rounded-full bg-neon-cyan border-4 border-slate-950 shadow-lg shadow-neon-cyan/50"></div>
+                        <h3 class="text-lg md:text-xl font-bold mb-1">{{ job.title }}</h3>
+                        <p class="text-neon-magenta text-sm font-semibold mb-2">{{ job.company }} • {{ job.period }}</p>
+                        <p class="text-slate-400 text-sm leading-relaxed">{{ job.description }}</p>
+                    </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
             <div class="text-center mt-8">
                 <button id="toggleExperience" class="px-8 py-3 bg-gradient-to-r from-neon-cyan to-neon-magenta text-white font-bold rounded-full uppercase tracking-wider transition-all duration-300 shadow-lg shadow-neon-cyan/30 hover:shadow-neon-magenta/50 hover:scale-105">

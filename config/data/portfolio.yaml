@@ -77,6 +77,12 @@ projects:
       - 'MySQL'
 
 experience:
+  - title: 'CTO/Founder'
+    company: 'Great Artist'
+    period: 'Jun 2025 - Present'
+    description: 'Founder developer of Great Artist startup - a social platform for artists and digital content creators. Building scalable infrastructure with modern tech stack. Currently under development and seeking investors.'
+    hidden: false
+
   - title: 'Drupal Specialist Consultant'
     company: 'Squadra Digital'
     period: 'Dec 2024 - Jun 2025'
