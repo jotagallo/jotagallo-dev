@@ -52,6 +52,25 @@ if [ -d "/etc/letsencrypt/live/${CERTBOT_DOMAIN}" ]; then
 else
     log "Obtaining new SSL certificate for ${CERTBOT_DOMAIN}..."
     
+    # First, ensure nginx is running
+    sudo systemctl start nginx || log "Nginx not started yet"
+    sleep 3
+    
+    # Check if nginx is actually running
+    if ! sudo systemctl is-active --quiet nginx; then
+        log "WARNING: Nginx is not running. Attempting to start..."
+        sudo systemctl start nginx
+        sleep 5
+    fi
+    
+    # Verify domain is accessible
+    log "Checking if domain is accessible..."
+    if curl -s -o /dev/null -w "%{http_code}" "http://${CERTBOT_DOMAIN}" | grep -q "200\|301\|302"; then
+        log "Domain is accessible, proceeding with certificate acquisition"
+    else
+        log "WARNING: Domain may not be accessible yet. Status: $(curl -s -o /dev/null -w "%{http_code}" "http://${CERTBOT_DOMAIN}" || echo "failed")"
+    fi
+    
     # Obtain certificate with extended renewal window
     # Note: Let's Encrypt certificates are always valid for 90 days
     # We configure aggressive renewal (at 60 days) to ensure plenty of time
@@ -62,13 +81,18 @@ else
         --domains "${CERTBOT_DOMAIN}" \
         --redirect \
         --renew-by-default \
-        --rsa-key-size 4096 2>&1 | tee -a "$LOG_FILE"
+        --rsa-key-size 4096 \
+        --debug 2>&1 | tee -a "$LOG_FILE"
     
     CERTBOT_EXIT_CODE=$?
     log "Certbot exit code: ${CERTBOT_EXIT_CODE}"
     
     if [ $CERTBOT_EXIT_CODE -ne 0 ]; then
         log "ERROR: Certbot failed to obtain certificate"
+        log "This might be due to:"
+        log "1. Domain DNS not pointing to this server"
+        log "2. Port 80/443 not accessible"
+        log "3. Nginx configuration issues"
         exit 1
     fi
     
@@ -92,7 +116,7 @@ log "Auto-renewal cron job configured (runs daily at 3 AM)"
 # Restart and verify nginx
 log "Restarting nginx..."
 sudo systemctl restart nginx
-sleep 2
+sleep 3
 
 # Verify nginx configuration
 log "Verifying nginx configuration..."
@@ -100,14 +124,32 @@ if sudo nginx -t 2>&1 | tee -a "$LOG_FILE"; then
     log "Nginx configuration is valid"
 else
     log "ERROR: Nginx configuration test failed"
+    log "Nginx error log:"
+    sudo tail -30 /var/log/nginx/error.log | tee -a "$LOG_FILE"
     exit 1
 fi
 
+# Forcereload nginx to ensure SSL config is active
+log "Reloading nginx to apply SSL configuration..."
+sudo systemctl reload nginx
+sleep 2
+
 # Check if HTTPS is listening
+log "Checking if HTTPS port 443 is listening..."
 if sudo netstat -tuln | grep :443 >> "$LOG_FILE"; then
-    log "HTTPS port 443 is listening"
+    log "✓ HTTPS port 443 is listening"
 else
-    log "WARNING: Port 443 is not listening!"
+    log "✗ WARNING: Port 443 is not listening!"
+    log "Checking nginx processes..."
+    sudo ps aux | grep nginx | tee -a "$LOG_FILE"
+fi
+
+# Check nginx SSL configuration
+log "Checking nginx SSL configuration..."
+if sudo grep -r "ssl_certificate" /etc/nginx/ >> "$LOG_FILE" 2>&1; then
+    log "✓ SSL certificate configuration found in nginx"
+else
+    log "✗ WARNING: No SSL certificate configuration found in nginx!"
 fi
 
 # Display certificate information
