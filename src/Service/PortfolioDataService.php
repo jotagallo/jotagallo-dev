@@ -38,4 +38,10 @@ class PortfolioDataService
     {
         return $this->data;
     }
+
+    public function getYearsOfExperience(): int
+    {
+        $startYear = $this->data['career_start_year'] ?? 2010;
+        return (int) date('Y') - $startYear;
+    }
 }

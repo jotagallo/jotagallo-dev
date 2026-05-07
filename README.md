@@ -39,8 +39,7 @@ This is intentional — real developers don't need hand-holding.
 ## 👨‍💻 Developer
 
 **João Otávio Gallo**  
-Senior Fullstack Developer | 15 years of experience  
-São Paulo, Brazil
+Senior Fullstack Developer | São Paulo, Brazil
 
 - 💼 6 years remote work for international companies
 - 🎯 2 years as PHP Tech Lead
