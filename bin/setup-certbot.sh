@@ -76,17 +76,18 @@ else
 fi
 
 # Setup automatic renewal cron job
-# Runs twice daily and renews certificates that expire within 30 days
+# Runs once daily at 3 AM and renews certificates that expire within 30 days
 log "Setting up automatic certificate renewal..."
 cat > /tmp/certbot-renew << 'EOF'
-# Certbot automatic renewal - runs twice daily
+# Certbot automatic renewal - runs once daily at 3 AM
 # Renews certificates within 30 days of expiration
-0 0,12 * * * root /usr/bin/certbot renew --quiet --nginx --renew-hook "systemctl reload nginx" >> /var/log/letsencrypt/renew.log 2>&1
+0 3 * * * root /usr/bin/certbot renew --quiet --nginx --renew-hook "systemctl reload nginx" >> /var/log/letsencrypt/renew.log 2>&1
 EOF
 
 sudo mv /tmp/certbot-renew /etc/cron.d/certbot-renew
 sudo chmod 644 /etc/cron.d/certbot-renew
-log "Auto-renewal cron job configured"
+sudo mkdir -p /var/log/letsencrypt
+log "Auto-renewal cron job configured (runs daily at 3 AM)"
 
 # Restart and verify nginx
 log "Restarting nginx..."
@@ -121,6 +122,7 @@ fi
 
 log "=== Certbot Setup Complete ==="
 log "Certificates will auto-renew when they have 30 days or less remaining"
+log "Auto-renewal check runs daily at 3 AM"
 log "Log file: ${LOG_FILE}"
 
 exit 0

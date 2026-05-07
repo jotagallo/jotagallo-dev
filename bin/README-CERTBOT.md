@@ -2,20 +2,20 @@
 
 ## Overview
 
-SSL certificate management has been migrated from `.ebextensions` to a standalone bin script with deployment hooks for better reliability and maintainability.
+SSL certificate management uses a combination of `.ebextensions` and a standalone bin script for better reliability and maintainability.
 
 ## Architecture
 
 ### Scripts
 - **`bin/setup-certbot.sh`** - Main Certbot installation and certificate management script
-- **`.platform/hooks/postdeploy/01_setup_certbot.sh`** - Deployment hook that executes after each deployment
+- **`.ebextensions/10_install_certbot.config`** - EB extension that executes the setup script during deployment
 
 ### How It Works
 
-1. **On Deployment**: The postdeploy hook automatically runs `bin/setup-certbot.sh`
+1. **On Deployment**: The `.ebextensions` config runs `bin/setup-certbot.sh` from the staging directory
 2. **Installation**: Certbot is installed if not present (using Python venv at `/opt/certbot/`)
 3. **Certificate Acquisition**: Obtains SSL certificate from Let's Encrypt for configured domain
-4. **Auto-Renewal**: Sets up cron job to check renewal twice daily
+4. **Auto-Renewal**: Sets up cron job to check renewal once daily at 3 AM
 
 ## Configuration
 
@@ -37,8 +37,10 @@ CERTBOT_DOMAIN=yourdomain.com
 
 ### Auto-Renewal Configuration
 ```
-0 0,12 * * * root /usr/bin/certbot renew --quiet --nginx --renew-hook "systemctl reload nginx"
+0 3 * * * root /usr/bin/certbot renew --quiet --nginx --renew-hook "systemctl reload nginx"
 ```
+
+Runs once daily at 3 AM to minimize resource usage while ensuring certificates stay current.
 
 ## Improvements Over Previous Setup
 
@@ -48,6 +50,7 @@ CERTBOT_DOMAIN=yourdomain.com
 4. **Automatic Nginx Reload**: Nginx automatically reloads after successful renewal
 5. **Better Error Handling**: Exit codes and error messages for troubleshooting
 6. **Certificate Expiry Checks**: Logs current certificate status on each run
+7. **Resource Efficient**: Daily renewal check at 3 AM instead of twice daily
 
 ## Logs
 
@@ -70,6 +73,8 @@ sudo certbot renew --force-renewal --nginx
 ### Run Setup Script Manually
 ```bash
 sudo /var/app/current/bin/setup-certbot.sh
+# or from local development:
+sudo ./bin/setup-certbot.sh
 ```
 
 ### Test Nginx Configuration
@@ -87,6 +92,6 @@ sudo nginx -t
 
 ## Migration Notes
 
-- Removed `.ebextensions/10_install_certbot.config`
-- Migrated to `.platform/hooks/postdeploy/` approach
-- All functionality preserved and enhanced
+- Uses `.ebextensions/10_install_certbot.config` to call `bin/setup-certbot.sh`
+- Combines the reliability of `.ebextensions` with maintainability of separate scripts
+- All functionality enhanced with better logging and error handling
